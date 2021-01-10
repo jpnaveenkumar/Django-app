@@ -2,7 +2,7 @@ version: '3'
 services:
   job-portal-server:
     container_name: job-portal-server
-    image: job-portal-server
+    build: .
     ports:
       - '8000:8000'
     depends_on:
