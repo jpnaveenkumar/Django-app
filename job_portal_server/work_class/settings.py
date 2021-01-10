@@ -32,7 +32,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
-    'corsheaders'
+    'corsheaders',
     'job_portal.apps.JobPortalConfig',
     'django.contrib.admin',
     'django.contrib.auth',
