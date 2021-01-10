@@ -6,4 +6,5 @@ RUN apt-get install python3-dev default-libmysqlclient-dev build-essential -y
 RUN pip install mysqlclient
 RUN pip install Django
 RUN pip install djangorestframework
+RUN pip install pip install django-cors-headers 
 CMD ["python" , "manage.py" , "runserver", "0.0.0.0:8000", "--noreload"]
