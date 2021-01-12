@@ -8,6 +8,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.parsers import JSONParser 
+from django.db import connection
 
 # Create your views here.
 
@@ -47,6 +48,19 @@ def updateJob(jobRequest):
     else:
         return handleFailureResponse(tutorial_serializer.errors, status.HTTP_400_BAD_REQUEST)
 
+def getAllCompanies():
+    try:
+        cursor = connection.cursor()
+        cursor.execute('select distinct company from MY_TABLE')
+        result = cursor.fetchall()
+        response = []
+        for company in result:
+            response.append(company[0])
+        return handleSuccessResponse(response, status.HTTP_200_OK)
+    except:
+        return handleFailureResponse('Error Occurred while fetching company info', status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
 @api_view(['GET', 'POST'])
 def job(request):
     if request.method == 'GET':
@@ -68,3 +82,18 @@ def specificJob(request, job_id):
     if request.method == 'DELETE':
         job.delete()
         return handleSuccessResponse('Job was deleted successfully!', status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET'])
+def company(request):
+    if(request.method == 'GET'):
+        return getAllCompanies()
+
+@api_view(['GET'])
+def specificCompany(request, company_name):
+    if(request.method == 'GET'):
+        try:
+            jobs = Jobs.objects.filter(company = company_name)
+            job_serializer = JobSerializer(jobs, many=True)
+            return handleSuccessResponse(job_serializer.data, status.HTTP_200_OK)
+        except:
+            return handleFailureResponse('Error Occurred while fetching job info', status.HTTP_500_INTERNAL_SERVER_ERROR)

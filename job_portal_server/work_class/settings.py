@@ -25,7 +25,7 @@ SECRET_KEY = '=nokxm!b23p_b%ssbw6uwa!10$f^bz@oc2yf_8*@9^a57c&wnu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['54.255.66.180','naveenkumarjp.com']
+ALLOWED_HOSTS = ['54.255.66.180','naveenkumarjp.com','localhost']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -84,7 +84,9 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'workclass',
         'HOST': 'job-portal-db',
+        #'HOST' : '54.255.66.180',
         'PORT': '3306',
+        #'PORT': '5555',
     }
 }
 
