@@ -15,8 +15,16 @@ export default class JobListing extends React.Component
 
     async componentWillMount()
     {
+        var companyName = '';
+        var url = '';
+        if(this.props.companyName){
+            companyName = this.props.companyName;
+            url= "api/v1/company/"+companyName;
+        }else{
+            url = "api/v1/jobs/";
+        }
         var httpRequest = new HttpRequest()
-        var jobListings = await httpRequest.getRequest("api/v1/jobs/");
+        var jobListings = await httpRequest.getRequest(url);
         console.log(jobListings.data);
         this.setState({
             jobListings : jobListings.data 

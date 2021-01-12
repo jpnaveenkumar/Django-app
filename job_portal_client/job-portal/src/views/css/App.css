@@ -1,0 +1,18 @@
+.tab-container{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid grey;
+}
+
+.tab{
+    padding: 7px;
+    border: 1px solid grey;
+    border-bottom: 0px;
+}
+
+.active{
+    position: relative;
+    top: 1px;
+    background-color: white;
+}

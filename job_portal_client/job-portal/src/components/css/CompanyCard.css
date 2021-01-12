@@ -1,4 +1,4 @@
-.JobCard{
+.CompanyCard{
     height: 270px;
     width: 290px;
     padding: 5px;
@@ -20,20 +20,6 @@
     display: flex;
     justify-content: center;
     font-weight: bold;
-    text-align: center;
-    margin: 5px;
-}
-
-.JobTitleContainer{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin: 5px;
-}
-
-.JobPostedDateContainer{
-    display: flex;
-    justify-content: center;
     text-align: center;
     margin: 5px;
 }
