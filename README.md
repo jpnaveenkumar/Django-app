@@ -1,12 +1,12 @@
 # Django-app
 
-Server Deployment :
+#Server Deployment :
 
 $ docker-compose up 
 
 The server and database containers runs in the port 8000 and 5555 respectively
 
-Client Deployment :
+#Client Deployment :
 
 $ npm install => download dependencies
 
